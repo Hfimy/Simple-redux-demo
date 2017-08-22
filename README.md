@@ -13,3 +13,7 @@
 3. 使用Redux实现
 
 &emsp;&emsp;Flux的基本原则是“单向数据流”，Redux在此基础上强调三个基本原则：唯一数据源、保持状态只读、数据改变只能通过纯函数reducer完成。整体流程可简述为，首先，通过store.getState()获取初始化状态，然后，用户发出action,`store.dispatch(action)`,然后,store自动调用reducer，并且传入两个参数，当前state和收到的action,reducer会返回新的state,state一旦有变化，store就会调用监听函数，根据shouldComponentUpdate决定是否更新组件。
+
+4. 将Redux组件拆分为容器组件和无状态组件
+
+&emsp;&emsp;在Redux框架下，一个React组件基本上就是要完成两个功能：和redux store打交道，读取store的状态，用于初始化组件的状态，同时还要监听store的状态改变，当store的状态改变时，需要更新组件状态，从而驱动组件重新渲染，当需要更新store状态时，就需要派发action对象；另一个功能便是根据当前的props和state，渲染用户界面，因此，我们可以考虑将之拆分为两个组件，一个用于和redux store打交道的容器组件，一个只专心负责渲染界面的无状态组件（UI组件）。实际上，这种拆分组件为容器组件和无状态组件是设计React组件的一种模式，和Redux没有直接关系。

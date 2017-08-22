@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import ReactVersion from './React/index';
 import FluxVersion from './Flux/index'
 import ReduxVersion from './Redux/index';
+import ReduxContainer from './ReduxContainer/index';
 
 class App extends Component {
   render() {
@@ -10,6 +11,7 @@ class App extends Component {
         <ReactVersion/>
         <FluxVersion/>
         <ReduxVersion/>
+        <ReduxContainer/>
       </div>
     );
   }
