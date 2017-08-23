@@ -4,7 +4,7 @@ import FluxVersion from './Flux/index'
 import ReduxVersion from './Redux/index';
 import ReduxContainer from './ReduxContainer/index';
 import ReduxContext from './ReduxContext';
-
+import ReactRedux from './React-Redux';
 class App extends Component {
   render() {
     return (
@@ -14,6 +14,7 @@ class App extends Component {
         <ReduxVersion/>
         <ReduxContainer/>
         <ReduxContext/>
+        <ReactRedux/>
       </div>
     );
   }

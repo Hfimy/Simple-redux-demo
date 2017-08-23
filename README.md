@@ -21,3 +21,11 @@
 5. ReduxContext
 
 &emsp;&emsp;在之前的例子中，直接在各个组件中导入store,虽然rudex应用全局就一个store，但这样的导入依然有问题，不利于组件复用，在实际工作中，一个应用的规模会很大，不会所有的组件都放在一个代码库中，有时还要通过npm方式引入第三方的组件，当开发一个独立的组件时，自己都不知道这个组件将存在于哪个应用中，当然不可能预先知道定义唯一redux store的文件位置了，所以，通过使用react的Context功能可以解决这个问题，所谓Context,就是”上下文环境“，让一个树状组件上的所有组件都能访问一个共同的对象，为了完成这个任务，需要上级组件和下级组件配合。首先，上级组件要宣称自己支持Context，并且提供一个函数来返回代表Context的对象，然后，这个上级组件之下的所有子孙组件，只有宣称自己需要这个Context，就可以通过this.context访问到这个共同的环境对象。
+
+6. React-Redix
+
+&emsp;&emsp;通过使用React-Redux这个库可以将4、5所做的工作简化，它帮我们完成了这些工作。
+* Provider不需要我们再自己定义，直接从React-Redux引入即可
+* 不需要再手动定义容器组件，通过React-Redux的connect函数自动生成，这个函数接收两个参数mapStateToProps和mapDispatchToProps。
+mapStateToProps函数是输入逻辑，由外部的数据（store的state对象)确定UI组件的参数。接收两个参数(state,ownProps)，它会订阅store，当state或发生改变时，该函数自动执行(ownProps发生改变时也会自动执行),重新计算UI组件的参数，从而引发UI组件的重新渲染。。
+mapDispatchToProps函数则是输出逻辑，根据用户不同的动作派发出不同的action。接收两个参数(dispatch,ownProps);
