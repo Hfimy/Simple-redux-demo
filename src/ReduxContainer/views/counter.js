@@ -23,7 +23,7 @@ Counter.propTypes={
     count:PropTypes.number.isRequired
 }
 
-export default class CounterContainer extends Component {
+class CounterContainer extends Component {
     constructor(props) {
         super(props);
         this.addValue = this.addValue.bind(this);
@@ -63,3 +63,6 @@ export default class CounterContainer extends Component {
 CounterContainer.propTypes = {
     caption: PropTypes.string.isRequired
 }
+
+
+export  default CounterContainer
